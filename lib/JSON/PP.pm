@@ -14,7 +14,7 @@ use JSON::PP::Boolean;
 use Carp ();
 #use Devel::Peek;
 
-$JSON::PP::VERSION = '4.03';
+$JSON::PP::VERSION = '4.03_01';
 
 @JSON::PP::EXPORT = qw(encode_json decode_json from_json to_json);
 
@@ -1773,14 +1773,14 @@ JSON::PP - JSON::XS compatible pure-Perl module.
 
 =head1 VERSION
 
-    4.03
+    4.03_01
 
 =head1 DESCRIPTION
 
-JSON::PP is a pure perl JSON decoder/encoder, and (almost) compatible to much
-faster L<JSON::XS> written by Marc Lehmann in C. JSON::PP works as
-a fallback module when you use L<JSON> module without having
-installed JSON::XS.
+JSON::PP is a pure perl JSON decoder/encoder, and (almost) compatible
+to L<JSON>, L<JSON::XS> and L<Cpanel::JSON::XS>. JSON::PP works as a
+fallback module when you use L<JSON> module without having installed
+JSON::XS or Cpanel::JSON::XS.
 
 Because of this fallback feature of JSON.pm, JSON::PP tries not to
 be more JavaScript-friendly than JSON::XS (i.e. not to escape extra
@@ -1793,6 +1793,7 @@ framework and is also smaller and faster than JSON::PP.
 
 JSON::PP has been in the Perl core since Perl 5.14, mainly for
 CPAN toolchain modules to parse META.json.
+cperl doesn't need it, as it has L<Cpanel::JSON::XS> in core.
 
 =head1 FUNCTIONAL INTERFACE
 
@@ -2365,7 +2366,7 @@ that the object is only a single hash/object or array.
 If no argument is given, the highest possible setting will be used, which
 is rarely useful.
 
-See L<JSON::XS/SECURITY CONSIDERATIONS> for more info on why this is useful.
+See L<Cpanel::JSON::XS/SECURITY CONSIDERATIONS> for more info on why this is useful.
 
 =head2 max_size
 
@@ -2382,7 +2383,7 @@ effect on C<encode> (yet).
 If no argument is given, the limit check will be deactivated (same as when
 C<0> is specified).
 
-See L<JSON::XS/SECURITY CONSIDERATIONS> for more info on why this is useful.
+See L<Cpanel::JSON::XS/SECURITY CONSIDERATIONS> for more info on why this is useful.
 
 =head2 encode
 
